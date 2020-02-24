@@ -42,12 +42,19 @@ a{
   justify-content: space-between;
 }
 
+.saved-movies-list {
+  display: flex;
+  flex-direction: flex-start;
+  align-items: center;
+}
+
 .saved-list h3 {
   margin-right: 10px;
 }
 
 .saved-movie {
   margin: 0 10px;
+  font-style: italic;
 }
 .saved-active {
   color: blue;

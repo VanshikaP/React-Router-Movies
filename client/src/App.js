@@ -9,7 +9,14 @@ const App = () => {
   const [savedList, setSavedList] = useState( [] );
 
   const addToSavedList = movie => {
-    setSavedList( [...savedList, movie] );
+    console.log(savedList);
+    if(savedList.find(m => movie.id === m.id)){
+      console.log('movie found');
+      alert(`${movie.title} is already saved`);
+    } else {
+      console.log('movie not found');
+      setSavedList( [...savedList, movie] );
+    }
   };
 
   return (
