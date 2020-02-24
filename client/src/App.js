@@ -11,10 +11,10 @@ const App = () => {
   const addToSavedList = movie => {
     console.log(savedList);
     if(savedList.find(m => movie.id === m.id)){
-      console.log('movie found');
+      // console.log('movie found');
       alert(`${movie.title} is already saved`);
     } else {
-      console.log('movie not found');
+      // console.log('movie not found');
       setSavedList( [...savedList, movie] );
     }
   };
