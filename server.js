@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(CORS());
 
 //New Addition
-app.use('/', express.static('public'));
+app.use('/', express.static('./public'));
 
 const movies = [
 	{
