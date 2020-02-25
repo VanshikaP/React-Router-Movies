@@ -7,8 +7,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(CORS());
 
-//New Addition
-// app.use('/', express.static('./public'));
 
 const movies = [
 	{
@@ -69,15 +67,30 @@ app.post('/api/movies', (req, res) => {
 	res.status(201).json(movies);
 });
 
+//Original Code --
+
 // app.listen(5000, () => {
 // 	console.log('Server listening on port 5000');
 // });
 
 // app.listen(process.env.PORT || 5000);
 
+//Trial Code -- Removes error
 app.set( 'port', ( process.env.PORT || 5000 ));
 
 // Start node server
 app.listen( app.get( 'port' ), function() {
   console.log( 'Node server is running on port ' + app.get( 'port' ));
   });
+
+//Trial 4 - 
+if (process.env.NODE_ENV === 'production') {
+// Exprees will serve up production assets
+	app.use(express.static('client/build'));
+
+	// Express serve up index.html file if it doesn't recognize route
+	const path = require('path');
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+		});
+}
