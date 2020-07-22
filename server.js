@@ -7,6 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(CORS());
 
+
 const movies = [
 	{
 		id: 0,
@@ -66,6 +67,18 @@ app.post('/api/movies', (req, res) => {
 	res.status(201).json(movies);
 });
 
-app.listen(5000, () => {
-	console.log('Server listening on port 5000');
-});
+//Original Code --
+
+// app.listen(5000, () => {
+// 	console.log('Server listening on port 5000');
+// });
+
+// app.listen(process.env.PORT || 5000);
+
+//Trial Code -- Removes error
+app.set( 'port', ( process.env.PORT || 5000 ));
+
+// Start node server
+app.listen( app.get( 'port' ), function() {
+  console.log( 'Node server is running on port ' + app.get( 'port' ));
+  });

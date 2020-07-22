@@ -5,6 +5,12 @@ body {
   background-color: #f2f2f2;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+}
+
+
 .movie-card {
   background-color: #fff;
   border: 0;
@@ -36,12 +42,19 @@ body {
   justify-content: space-between;
 }
 
+.saved-movies-list {
+  display: flex;
+  flex-direction: flex-start;
+  align-items: center;
+}
+
 .saved-list h3 {
   margin-right: 10px;
 }
 
 .saved-movie {
   margin: 0 10px;
+  font-style: italic;
 }
 .saved-active {
   color: blue;
